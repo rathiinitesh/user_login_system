@@ -107,17 +107,25 @@ def user_dashboard():
     if current_user.is_authenticated:
         form = UpdateAccountForm()
         if form.validate_on_submit():
-            if form.profile_pic.data:
+            old_pic_data = current_user.profile_pic
+            old_path = os.path.join(app.root_path, 'static/profile_pics', old_pic_data)
+            if form.profile_pic.data and not form.delete.data:
                 pic_file = save_picture(form.profile_pic.data)
-                old_pic_data = current_user.profile_pic
                 current_user.profile_pic = pic_file
-                old_path = os.path.join(app.root_path, 'static/profile_pics', old_pic_data)
                 # if old_pic_data != 'default.jpg':
                 #     os.remove(old_path)
+
+            if form.delete.data and current_user.profile_pic != 'default.jpg':
+                # os.remove(old_path)
+                current_user.profile_pic = 'default.jpg'
             current_user.username = form.username.data
             current_user.email = form.email.data
             db.session.commit()
-            flash('Your Account has been updated.', 'success')
+            if form.delete.data and old_pic_data == 'default.jpg':
+                flash(f'It will take all your might to delete this default profile image or just delete it directly '
+                      f'from the folder that will do the trick.', 'success')
+            else:
+                flash('Your Account has been updated.', 'success')
             return redirect(url_for('user_dashboard'))
         elif request.method == 'GET':
             form.username.data = current_user.username
@@ -148,8 +156,8 @@ def user_verification(username):
                 flash(f'User Verification process for {user.username} finished.', 'success')
             db.session.commit()
             return redirect(url_for('admin_panel'))
-        else:
-            print(f'\nForm Errors: {form.errors}\n')
+        # else:
+        #     print(f'\nForm Errors: {form.errors}\n')
         return render_template('user_verification.html', title='User Verification', form=form, user=user,
                                profile_pic=profile_pic)
     else:

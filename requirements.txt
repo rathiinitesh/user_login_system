@@ -6,3 +6,6 @@ flask-login
 Pillow
 itsdangerous
 flask-mail
+flask_sqlalchemy
+flask_login
+psycopg2

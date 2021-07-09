@@ -54,6 +54,10 @@
                         {% endfor %}
                     {% endif %}
                 </div>
+                <div class="form-check">
+                    {{ form.delete(class="form-check-input") }}
+                    {{ form.delete.label(class="form-check-label") }}
+                </div>
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
