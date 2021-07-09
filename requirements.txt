@@ -1,0 +1,8 @@
+flask
+flask-bcrypt
+flask-wtf
+email-validator
+flask-login
+Pillow
+itsdangerous
+flask-mail

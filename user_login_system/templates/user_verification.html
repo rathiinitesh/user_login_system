@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block bodycontent %}
+    <h1>User Verification</h1>
+    <div>
+        <div class="content-section">
+            <div class="media">
+                <img class="rounded-circle account-img" src="{{ profile_pic }}">
+                <div class="media-body">
+                    <h2 class="account-heading">{{ user.username }}</h2>
+                    <h5 class="text-secondary">{{ user.email }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <form method="POST" action="{{ url_for('user_verification', username=user.username) }}">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">User Verification</legend>
+                <div class="form-check">
+                    {{ form.verify(class="form-check-input") }}
+                    {{ form.verify.label(class="form-check-label") }}
+                </div>
+                <div class="form-check">
+                    {{ form.delete(class="form-check-input") }}
+                    {{ form.delete.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock bodycontent %}

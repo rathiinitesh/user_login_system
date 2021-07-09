@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block bodycontent %}
+    <h1>Users List</h1>
+    {% for user in users.items %}
+        {% if user.username != 'admin' %}
+            <div class="content-section">
+                <div class="media">
+                    <img class="rounded-circle account-img"
+                         src="{{ url_for('static', filename='profile_pics/' + user.profile_pic) }}">
+                    <div class="media-body">
+                        <h3 class="account-heading">Username:
+                            <a href="{{ url_for('user_verification', username=user.username) }}">{{ user.username }}</a>
+                            </h3>
+                        <h4 class="text-secondary">Email: {{ user.email }}</h4>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    {% for page_number in users.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+        {% if page_number %}
+            {% if users.page == page_number %}
+                <a class="btn btn-info mb-4"
+                   href="{{ url_for('admin_panel', page=page_number) }}">{{ page_number }}</a>
+            {% else %}
+                <a class="btn btn-outline-info mb-4"
+                   href="{{ url_for('admin_panel', page=page_number) }}">{{ page_number }}</a>
+            {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+{% endblock bodycontent %}
+{% block sidebar %}
+    <div class="col-md-4">
+        <div class="content-section">
+            <h3>Admin Info</h3>
+            <div>
+                <div class="content-section">
+                    <div class="media">
+                        <img class="rounded-circle account-img" src="{{ profile_pic }}">
+                        <div class="media-body">
+                            <h2 class="account-heading">{{ current_user.username }}</h2>
+                            <h5 class="text-secondary">{{ current_user.email }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock sidebar %}
