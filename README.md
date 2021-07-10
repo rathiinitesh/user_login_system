@@ -1,6 +1,8 @@
 # user_login_system
 User login system with an admin overseeing eveything.
 
+This is a Python(flask framework) OOPS based app. It also uses some basic html, Bootstrap, CSS etc.
+
 Requirements for the app :-
 
 For now, I have included the secret key and the database_uri in the app itself but, for security 
@@ -68,3 +70,5 @@ You will recieve a nice custom 404 error page instead of default nasty one.
 Now, feel free to experiment.
 
 Enjoy!!!
+
+This is an experiment with the flask framework and does not represent the final product.
