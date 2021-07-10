@@ -49,6 +49,11 @@ Admin account already exists.
         email: "admin@demo.com"
         password: "admin"
  
-Feel, free to experiment.
+App also has some custom error handler routes for errors like 403, 404, 500.
+For testing one try going to a page that does not exist like in url bar of your browser 
+enter """locahost:5000/test"""
+You will recieve a nice custom 404 error page instead of default nasty one.
+
+Now, feel free to experiment.
 
 Enjoy!!!
