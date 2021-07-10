@@ -3,22 +3,32 @@ User login system with an admin overseeing eveything.
 
 Requirements for the app :-
 
-For getting this app to work, please set environment variables for secret key, database uri, 
-email username and password.
+For now, I have included the secret key and the database_uri in the app itself but, for security 
+purposes we should set those as environment variables. To do so, we can follow below mentioned steps: 
 
-For Linux/Mac:
-    In .bash.profile : 
-        export varible_name=variable_value
-    In windows : 
-        Control Panel >> System and Security >> System >> System Properties/Allow remote access >> 
-        Advanced >> Environment Variables >> User variables >> New >> Variable name and value.
-        
-         
-For creating secret key use secrets module >> token_hex method.
+    For getting this app to work, please set environment variables for secret key, database uri, 
+    email username and password.
+    
+    For Linux/Mac:
+        In .bash.profile : 
+            export varible_name=variable_value
+        In windows : 
+            Control Panel >> System and Security >> System >> System Properties/Allow remote access >> 
+            Advanced >> Environment Variables >> User variables >> New >> Variable name and value.
+            
+             
+    For creating secret key use secrets module >> token_hex method.
+    
+    For Secret_Key: 
+    
+    variable_name: 'ULS_SECRET_KEY', variable_value = 'token_hex generated value'
+    
+    For Database: 
+    
+    variable_name: 'ULS_DATABASE_URI', variable_value = 'sqlite:///users.db'
 
-For Database: 
 
-variable_name: 'ULS_DATABASE_URI', variable_value = 'sqlite:///users.db'
+MAIL_SERVER:
 
 Right now, the mail server being used is googlemail, please do make sure that the email account mentioned 
 below is a gmail account else, go to the config.py file of package user_login_system and change the 
@@ -33,6 +43,7 @@ variable_name: 'EMAIL_USERNAME', variable_value = 'example@gmail.com'
 Password for the above account:
 
 variable_name: 'EMAIL_PASSWORD', variable_value = 'password'.
+
 
 Now, run requirements.txt file. It contains all the libraries and modules necessary for the app to work.
 
