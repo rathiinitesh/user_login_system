@@ -24,6 +24,15 @@
                     <div class="media-body">
                         <h2 class="account-heading">{{ user.username }}</h2>
                         <h5 class="text-secondary">{{ user.email }}</h5>
+                        {% if user.is_verified %}
+                            <h5 class="text-secondary">Account verified</h5>
+                        {% endif %}
+                        {% if user.reviewed and not user.is_verified %}
+                            <h5 class="text-secondary">Account not verified</h5>
+                        {% endif %}
+                        {% if not user.reviewed %}
+                            <h5 class="text-secondary">Account under Review</h5>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -33,9 +42,10 @@
         {% if page_number %}
             {% if users.page == page_number %}
                 <a class="btn btn-info mb-4"
-                   href="{{ url_for('about', page=page_number) }}">{{ page_number }}</a>
+                   href="{{ url_for('main.about', page=page_number) }}">{{ page_number }}</a>
             {% else %}
-                <a class="btn btn-outline-info mb-4" href="{{ url_for('about', page=page_number) }}">{{ page_number }}
+                <a class="btn btn-outline-info mb-4" href="{{ url_for('main.about', page=page_number) }}">
+                    {{ page_number }}
                 </a>
             {% endif %}
         {% else %}

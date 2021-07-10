@@ -7,34 +7,34 @@
         </h3>
     </div>
     <div class="mb-4">
-        <h2 class="mb-2">Home Page:</h2>
+        <h2 class="mb-2"><a href="{{ url_for('main.home') }}">Home:</a></h2>
         <h5 class="text-muted">This is the Home Page. So this is the overview/summary of this app. Focus, of
             this app is not on the design but on the backend (flask, python etc.) part of development.</h5>
     </div>
     <div class="mb-4">
-        <h2 class="mb-2">About Page:</h2>
+        <h2 class="mb-2"><a href="{{ url_for('main.about') }}">About:</a></h2>
         <h5 class="text-muted">About Page contains "paginated" list of all the users.</h5>
     </div>
     <div class="mb-4">
-        <h2 class="mb-2">Register Page:</h2>
+        <h2 class="mb-2"><a href="{{ url_for('users.register') }}">Register:</a></h2>
         <h5 class="text-muted">Register Page is a form for new users to register using a unique email.
             Along with a link to go to login page if the user is already registered.</h5>
     </div>
     <div class="mb-4">
-        <h2 class="mb-2">Login Page:</h2>
+        <h2 class="mb-2"><a href="{{ url_for('users.login') }}">Login:</a></h2>
         <h5 class="text-muted">Login Page is also a form for user to login. It also contains a link to
             reset password in case the user forgot his/her password (an email is sent to the registered
             email id for the user to click and change password) and a link to register in case
             the user is not a registered user.</h5>
     </div>
     <div class="mb-4">
-        <h2 class="mb-2">Admin Panel Page:</h2>
+        <h2 class="mb-2"><a href="{{ url_for('users.admin_panel') }}">Admin Panel:</a></h2>
         <h5 class="text-muted">Admin Panel page is the page which only the admin can access but only
             after logging in. Here the admin can checkout non-verified users and can approve, disapprove
             and delete them. It also displays basic admin info as well.</h5>
     </div>
     <div class="mb-4">
-        <h2 class="mb-2">User Dashboard Page:</h2>
+        <h2 class="mb-2"><a href="{{ url_for('users.user_dashboard') }}">User Dashboard:</a></h2>
         <h5 class="text-muted">User Dashboard shows all the info of a particular user and also contains
             a form for user to update his/her account info.</h5>
     </div>

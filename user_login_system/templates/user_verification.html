@@ -14,7 +14,7 @@
     </div>
 
     <div class="content-section">
-        <form method="POST" action="{{ url_for('user_verification', username=user.username) }}">
+        <form method="POST" action="{{ url_for('users.user_verification', username=user.username) }}">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">User Verification</legend>

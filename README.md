@@ -3,20 +3,30 @@ User login system with an admin overseeing eveything.
 
 Requirements for the app :-
 
-For getting this app to work, please add environment variables for secret key, database uri, 
+For getting this app to work, please set environment variables for secret key, database uri, 
 email username and password.
 
+For Linux/Mac:
+    In .bash.profile : 
+        export varible_name=variable_value
+    In windows : 
+        Control Panel >> System and Security >> System >> System Properties/Allow remote access >> 
+        Advanced >> Environment Variables >> User variables >> New >> Variable name and value.
+        
+         
 For creating secret key use secrets module >> token_hex method.
+
+For Database: 
 
 variable_name: 'ULS_DATABASE_URI', variable_value = 'sqlite:///users.db'
 
-Right now, the server being used is googlemail, please do make sure that the email account mentioned 
-below is a gmail account else, go to the __init__.py file of package user_login_system and change the 
-app config key for mail_server.
+Right now, the mail server being used is googlemail, please do make sure that the email account mentioned 
+below is a gmail account else, go to the config.py file of package user_login_system and change the 
+'MAIL_SERVER' variable value.
 
 key: 'MAIL_SERVER'
 
-Email id for sending emails for resetting password i.e. emails will be sent by this account:
+Email id for sending emails for resetting password i.e. account that will be used for sending reset link:
 
 variable_name: 'EMAIL_USERNAME', variable_value = 'example@gmail.com'
 

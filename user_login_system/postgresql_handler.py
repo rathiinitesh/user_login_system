@@ -4,7 +4,7 @@ import psycopg2.extras as pe
 DB_HOST = '127.0.0.1'
 DB_USER = 'postgres'
 DB_NAME = 'postgres'
-DB_PASS = 'Thelastone3@'
+DB_PASS = 'this will be the password'
 
 
 connection = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
